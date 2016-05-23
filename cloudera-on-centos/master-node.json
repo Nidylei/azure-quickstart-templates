@@ -302,11 +302,7 @@
       "apiVersion": "[parameters('resourceAPIVersion')]",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[concat(variables('vmName'), copyIndex())]",
-      "plan": {
-        "name": "cloudera-centos-6",
-        "publisher": "cloudera",
-        "product": "cloudera-centos-6"
-      },
+
       "location": "[parameters('location')]",
       "copy": {
         "name": "masterNodeNicLoop",
@@ -332,13 +328,13 @@
           }
         },
         "storageProfile": {
-          "imageReference":
+		"imageReference":
           {
-            "publisher": "cloudera",
-            "offer": "cloudera-centos-6",
-            "sku": "CLOUDERA-CENTOS-6",
+            "publisher": "OpenLogic",
+            "offer": "CentOS",
+            "sku": "6.6",
             "version": "latest"
-          },
+          }, 
           "osDisk":
           {
             "name": "osdisk",
